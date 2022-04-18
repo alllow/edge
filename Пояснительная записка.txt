@@ -6,3 +6,5 @@
 Для получения видео по id - http://localhost:8000/
 Для получения id видео (Computer vision) - http://localhost:8000/cvAdd
 Для получения информации о видео по id (Computer vision) - http://localhost:8000/cvRes
+
+В CV стоит тестовое видео из API по аналитике
