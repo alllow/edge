@@ -91,6 +91,9 @@ func getAllVideos(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
+	//response to Postman
+	w.Write(body)
+
 	//printing response out
 	fmt.Println(string(body))
 }
@@ -112,8 +115,10 @@ func getVideoId(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 	req.Header.Add("Authorization", bearer)
+
 	//sending request
 	client := &http.Client{}
+
 	//reading response
 	resp, err := client.Do(req)
 
@@ -129,6 +134,9 @@ func getVideoId(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
+
+	//response to Postman
+	w.Write(body)
 
 	//printing response out
 	fmt.Printf("%s\n", string(body))
@@ -224,6 +232,9 @@ func computerVisionAddVideo(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
+	//response to Postman
+	w.Write(respbody)
+
 	//unmarshalling id
 	id := Id{}
 	json.Unmarshal(respbody, &id)
@@ -265,6 +276,9 @@ func computerVisionResult(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	//response to Postman
+	w.Write(bodyGet)
 
 	//printing response out
 	log.Printf("Get message: %v\n", string(bodyGet))
